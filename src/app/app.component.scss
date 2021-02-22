@@ -1,0 +1,60 @@
+.colorBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border: 1px solid white;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    cursor: grab;
+  }
+}
+
+gridster {
+  background: url(
+  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQYV2NkQAX/GZH4/xkYGBhhAmAOSBJEwDkgAQCCrgQEjpMcPgAAAABJRU5ErkJggg==
+  ) repeat;
+
+  height: calc(100% - 64px);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  height: 100%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-drawer {
+  width: 400px;
+  padding: 20px;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.done-checkmark {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
