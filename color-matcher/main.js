@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/attila.daczo/projects/color-matcher/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /Users/attila.daczo/projects/js_projects/color-matcher/src/main.ts */"zUnb");
 
 
 /***/ }),
