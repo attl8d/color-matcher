@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --deploy-url='https://github.com/attl8d/color-matcher/'",
+    "build": "ng build --deploy-url='https://attl8d.github.io/color-matcher/'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
