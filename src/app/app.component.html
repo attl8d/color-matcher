@@ -2,6 +2,25 @@
   <mat-drawer-content style="overflow: hidden;">
     <mat-toolbar color="primary" class="toolbar">
       <span>Color Matcher</span>
+
+      <form class="sort-by-form" [formGroup]="sortByForm">
+        <label for="firstSort" class="sort-label">Sort By:</label>
+        <select formControlName="firstSort" id="firstSort">
+          <option *ngFor="let sortOption of sortOptions" [ngValue]="sortOption.value">
+            {{sortOption.label}}
+          </option>
+        </select>
+        <select formControlName="secondSort">
+          <option *ngFor="let sortOption of sortOptions" [ngValue]="sortOption.value">
+            {{sortOption.label}}
+          </option>
+        </select>
+        <select formControlName="thirdSort">
+          <option *ngFor="let sortOption of sortOptions" [ngValue]="sortOption.value">
+            {{sortOption.label}}
+          </option>
+        </select>
+      </form>
       <!--      <button mat-icon-button-->
       <!--              (click)="drawer.toggle()">-->
       <!--        <mat-icon>settings</mat-icon>-->
@@ -12,14 +31,21 @@
                      *ngFor="let item of dashboard; let i = index">
         <div class="colorBox"
              [style]="{backgroundColor: colorsToMatch[i].color}">
-          <span class="hexValue" [style]="{color: colorsToMatch[i].textColor}">
-            {{colorsToMatch[i].color}}
-          </span>
-          <button mat-icon-button [style]="{color: colorsToMatch[i].textColor}"
-                  (click)="copyToClipboard(colorsToMatch[i].color)">
-            <mat-icon>content_copy</mat-icon>
-          </button>
-          <mat-icon *ngIf="colorsToMatch[i].isStyleGuideColor" [style]="{color: 'gold'}">star</mat-icon>
+          <div [style]="{color: colorsToMatch[i].textColor}">
+            <span class="hexValue">
+              {{colorsToMatch[i].color}}
+            </span>
+            <div>
+              H: {{colorsToMatch[i].hsl.h}} S: {{colorsToMatch[i].hsl.s}} L: {{colorsToMatch[i].hsl.l}}
+            </div>
+          </div>
+          <div class="box-controls">
+            <mat-icon *ngIf="colorsToMatch[i].isStyleGuideColor" [style]="{color: 'gold'}">star</mat-icon>
+            <button mat-icon-button [style]="{color: colorsToMatch[i].textColor}"
+                    (click)="Utils.copyToClipboard(colorsToMatch[i].color)">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+          </div>
         </div>
       </gridster-item>
     </gridster>
