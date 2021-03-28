@@ -44,9 +44,8 @@ export class AppComponent implements OnInit {
   ];
 
   public options: GridsterConfig = {
-    gridType: 'fixed',
-    fixedRowHeight: 100,
-    // verticalFixed: true,
+    gridType: 'verticalFixed',
+    fixedRowHeight: 70,
     draggable: {
       enabled: true
     },
@@ -174,6 +173,8 @@ export class AppComponent implements OnInit {
     { name: 'unknown85', color: '#eef0f5' },
   ];
 
+  private columns = 9;
+
   constructor(private fb: FormBuilder) {
   }
 
@@ -195,7 +196,7 @@ export class AppComponent implements OnInit {
           cols: 1, rows: 1, x, y
         });
 
-        if (x === 4) {
+        if (x === this.columns) {
           x = 0;
           y++;
         } else {
@@ -228,7 +229,7 @@ export class AppComponent implements OnInit {
         cols: 1, rows: 1, x, y
       });
 
-      if (x === 4) {
+      if (x === this.columns) {
         x = 0;
         y++;
       } else {

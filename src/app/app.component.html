@@ -29,18 +29,21 @@
     <gridster [options]="options">
       <gridster-item [item]="item"
                      *ngFor="let item of dashboard; let i = index">
-        <div class="colorBox"
+        <div class="color-box"
              [style]="{backgroundColor: colorsToMatch[i].color}">
-          <div [style]="{color: colorsToMatch[i].textColor}">
-            <span class="hexValue">
-              {{colorsToMatch[i].color}}
-            </span>
+          <div [style]="{color: colorsToMatch[i].textColor}" class="color-details">
             <div>
-              H: {{colorsToMatch[i].hsl.h}} S: {{colorsToMatch[i].hsl.s}} L: {{colorsToMatch[i].hsl.l}}
+              {{colorsToMatch[i].color}}
             </div>
+            <div>H: {{colorsToMatch[i].hsl.h}}</div>
+            <div>S: {{colorsToMatch[i].hsl.s}}</div>
+            <div>L: {{colorsToMatch[i].hsl.l}}</div>
           </div>
           <div class="box-controls">
-            <mat-icon *ngIf="colorsToMatch[i].isStyleGuideColor" [style]="{color: 'gold'}">star</mat-icon>
+            <button mat-icon-button>
+              <mat-icon [style]="{color: colorsToMatch[i].isStyleGuideColor ? 'gold' : colorsToMatch[i].color}">star
+              </mat-icon>
+            </button>
             <button mat-icon-button [style]="{color: colorsToMatch[i].textColor}"
                     (click)="Utils.copyToClipboard(colorsToMatch[i].color)">
               <mat-icon>content_copy</mat-icon>
